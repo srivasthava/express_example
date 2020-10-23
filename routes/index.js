@@ -20,9 +20,7 @@ router.get('/contact', function(req, res){
 });
 
 router.get('/chatbot', function(req, res){
-  res.render('chatbot', {
-    title: 'Chatbot'
-  });
+  res.send('chatbot request to the homepage')
 });
 
 module.exports = router;
