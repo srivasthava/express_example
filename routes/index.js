@@ -19,5 +19,11 @@ router.get('/contact', function(req, res){
   });
 });
 
+router.get('/chatbot', function(req, res){
+  res.render('chatbot', {
+    title: 'Chatbot'
+  });
+});
+
 module.exports = router;
 
