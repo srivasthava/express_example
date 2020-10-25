@@ -11,4 +11,4 @@ router.get('/:accountId', function (req, res, next) {
     res.send(`You request information on account with ID ${req.params.accountId}`);
 });
 
-module.exports = route
+module.exports = router;
