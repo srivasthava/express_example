@@ -5,13 +5,13 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var routes = require('./routes/');
-var config = require('./config');
+var config = require('./config/config.development.json');
 // declare modules
 var account = require('./routes/findAccount');
 
 var app = express();
 
-console.log(JSON.stringify(config));
+console.log(config.port);
 
 
 // view engine setup
