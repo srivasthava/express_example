@@ -11,7 +11,7 @@ var account = require('./routes/findAccount');
 
 var app = express();
 
-console.log(config);
+console.log(JSON.stringify(config));
 
 
 // view engine setup
