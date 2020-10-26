@@ -31,6 +31,7 @@ app.use(routes);
 app.use('/findAccount', account);
 const { WebhookClient } = require("dialogflow-fulfillment");
 const { welcome, defaultFallback } = require("./intents/WelcomeExit");
+const { postAPICall, getAPICall, utilfunctionTest } = require("./utils/util");
 
 app.post("/dialogflow", function (req, res) {
     const agent = new WebhookClient({ request: req, response: res });
@@ -40,6 +41,10 @@ app.post("/dialogflow", function (req, res) {
     agent.handleRequest(intentMap);
 });
 
+app.get('/utilTest', function (req, res) {
+    var message = utilfunctionTest("inside");
+    res.send('You must POST your request ' + message)
+})
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   var err = new Error('Not Found');
