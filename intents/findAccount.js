@@ -1,5 +1,5 @@
 
-const { postAPICall } = require("./utils/util");
+const { postAPICall } = require('../utils/util');
 
 async function findAccount(agent) {
     console.log("Finding account.");
