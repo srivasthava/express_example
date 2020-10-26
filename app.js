@@ -32,7 +32,7 @@ app.use('/findAccount', account);
 const { WebhookClient } = require("dialogflow-fulfillment");
 const { welcome, defaultFallback } = require("./intents/WelcomeExit");
 
-app.post("/dialogflow", express.json(), (req, res) => {
+app.post("/dialogflow", function (req, res) {
     const agent = new WebhookClient({ request: req, response: res });
     let intentMap = new Map();
     intentMap.set("Default Welcome Intent", welcome);
