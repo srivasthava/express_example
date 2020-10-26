@@ -5,13 +5,13 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var routes = require('./routes/');
-
+var config = require('config');
 // declare modules
 var account = require('./routes/findAccount');
 
 var app = express();
 
-
+console.log(config.port);
 
 
 // view engine setup
@@ -31,6 +31,8 @@ app.use(routes);
 app.use('/findAccount', account);
 const { WebhookClient } = require("dialogflow-fulfillment");
 const { welcome, defaultFallback } = require("./intents/WelcomeExit");
+const { findAccount } = require("./intents/findAccount");
+
 const { postAPICall, getAPICall, utilfunctionTest } = require("./utils/util");
 
 app.post("/dialogflow", function (req, res) {
