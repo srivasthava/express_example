@@ -45,7 +45,7 @@ app.post("/dialogflow", function (req, res) {
 
 app.get('/utilTest', function (req, res) {
     var message = utilfunctionTest("inside");
-    res.send('You must POST your request ' + message)
+    res.send('You must POST your request ' + message + 'port number from config' + config.port);
 });
 
 // catch 404 and forward to error handler
