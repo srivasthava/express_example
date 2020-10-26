@@ -9,7 +9,7 @@ var routes = require('./routes/');
 // declare modules
 var account = require('./routes/findAccount');
 const { WebhookClient } = require("dialogflow-fulfillment");
-const { welcome, defaultFallback } = require("./intents/welcomeExit");
+const { welcome, defaultFallback } = require("./intents/WelcomeExit");
 var app = express();
 
 app.post("/dialogflow", express.json(), (req, res) => {
