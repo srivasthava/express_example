@@ -8,17 +8,10 @@ var routes = require('./routes/');
 
 // declare modules
 var account = require('./routes/findAccount');
-//const { WebhookClient } = require("dialogflow-fulfillment");
-//const { welcome, defaultFallback } = require("./intents/WelcomeExit");
+
 var app = express();
 
-//app.post("/dialogflow", express.json(), (req, res) => {
-//    const agent = new WebhookClient({ request: req, response: res });
-//    let intentMap = new Map();
-//    intentMap.set("Default Welcome Intent", welcome);
-//    intentMap.set("Default Fallback Intent", defaultFallback);
-//    agent.handleRequest(intentMap);
-//});
+
 
 
 // view engine setup
@@ -36,6 +29,16 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(routes);
 
 app.use('/findAccount', account);
+const { WebhookClient } = require("dialogflow-fulfillment");
+const { welcome, defaultFallback } = require("./intents/WelcomeExit");
+
+app.post("/dialogflow", express.json(), (req, res) => {
+    const agent = new WebhookClient({ request: req, response: res });
+    let intentMap = new Map();
+    intentMap.set("Default Welcome Intent", welcome);
+    intentMap.set("Default Fallback Intent", defaultFallback);
+    agent.handleRequest(intentMap);
+});
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
