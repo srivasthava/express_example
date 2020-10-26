@@ -54,4 +54,10 @@ function utilfunctionTest (apiCallDetails) {
     return "from utilfunctionTest " + apiCallDetails;
 }
 
-module.exports = { postAPICall: postAPICall, getAPICall: getAPICall, utilfunctionTest: utilfunctionTest };
+function errorReport() {
+    console.log("into errorReport");
+    agent.setFollowupEvent('actionfailure');
+    //agent.add("Sorry, due to technical issues/errors I was unable to complete your request. For further assistance, please contact the help desk at 1-800-258-2736 during our normal business hours of Monday - Friday: 8:00 A.M. - 5:00 P.M. ET.");
+}
+
+module.exports = { postAPICall: postAPICall, getAPICall: getAPICall, utilfunctionTest: utilfunctionTest, errorReport: errorReport };
